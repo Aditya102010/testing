@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index Page</title>
+</head>
+<body>
+	<h3>Ciphers</h3>
+	<br>
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>Encrypted Text</th>
+		</thead>
+		{% for data in cipher %}
+		<tbody>
+			<td>{{data.id}}</td>
+            
+            <td>{{data.cipher}}</td>
+			
+			<td><a href="/delete/{{data.id}}" type="button">Delete</a><br></td>
+		</tbody>
+		{% endfor%}
+	</table>
+</body>
+</html>
