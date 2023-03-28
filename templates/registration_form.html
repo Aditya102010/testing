@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: lightgray;
+        }
+        input[type=text], select {
+            width: 40%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border-bottom: 2 px solid grey;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type=password], select {
+            width: 40%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border-bottom: 2 px solid grey;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        form{
+            background-color: white;
+            width: 500px;
+            padding-bottom: 20px;
+            border : 2px solid black;
+            border-radius: 20px;
+        }
+        #register_button{
+            border-color:lightblue;
+            width: 100px;
+            height: 40px;
+            border : 2 px solid black;
+            border-radius: 4px;
+            font-family :'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+        input[type=password]:hover{
+            border : 3px solid black
+        }
+        input[type=text]:hover{
+            border : 3px solid black
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h2>Please Enter your credentials and Register</h2><br><br>
+        <form action="http://localhost:5000/register_new_user" method = "post">
+            <label for="">Name</label><br>
+            <input type="text" name="name" id="name"><br><br>
+            <label for="">Username</label><br>
+            <input type="text" name="username" id="username"><br><br>
+            <label for="">Password</label><br>
+            <input type="password" name="password" id="password"><br><br>
+
+            <label for="cars">Choose a access level:</label><br>
+			<select id = "access" name = "access">
+
+				<option value="manager">Manager</option>
+				<option value="client">Client</option>
+				
+			</select>
+            <br><br>
+            <input type="submit" value="Register" id = "register_button">  
+        </form>
+        <br><br>
+        <a href="http://localhost:5000">Back to Login Page</a>
+        <h3>{{info}}</h3>
+    </center>
+    
+</body>
+</html>

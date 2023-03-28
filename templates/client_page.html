@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+				background-color: lightgray;
+        font-family: sans-serif;
+			}
+			input[type=text], select {
+            width: 70%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+            border-bottom: 2px solid grey;
+
+        }
+        input[type=password], select {
+            width: 70%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+		input[type=password]:hover{
+            border : 3px solid black
+        }
+        input[type=text]:hover{
+            border : 3px solid black
+        }
+        #login_button{
+          width: 50px;
+          height : 20px;
+          transition: width 1s, height 1s;
+          background-color:antiquewhite;
+        }
+        #login_button:hover{
+          width:100px;
+          height:30px;
+        }
+        form{
+          padding-top: 20px;
+          padding-bottom: 20px;
+          background-color: white;
+          width:500px;
+          border: 3px solid black ;
+          border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <center><h2>Create new License file</h2>
+            <form action = "http://localhost:5000/download" method = "post">
+                <br><br>
+                <label for = "plaintext">Enter your system number: </label>
+                <input type = "text" id = "SystemNumber" name = "SystemNumber" ><br>    	
+                <br>
+                <input type = "checkbox" name = "License" id = "checkbox_id">
+                <label for = "html"  name = "ESS License">ESS License</label>
+                <br><br>
+                <input id = "save_file" type="button" value = "Save File" name = "Save File" onclick = "myfun2()" />
+                <div id = "demo">
+                    
+                </div>
+                <br>
+                <br>
+                <label for="">Please enter a FileName to save file on your system</label><br>
+                <input type="text" id = "filename" name = "filename"><br>
+                <button type = "submit" formmethod="POST" download>create file</button>
+                <!--<button formaction = "http://localhost:5000/encode" formmethod = "POST">Create File</button>-->
+                
+                 
+            </form>	
+            <h3>{{info}}</h3>
+        </center>
+            <script>
+                function myfun2(){
+            var mark = 0
+            if(document.getElementById('checkbox_id').checked){
+                mark = 1
+            }
+            else {
+                mark = 0;
+            }
+            const data = document.getElementById('SystemNumber').value;
+            document.getElementById('demo').innerHTML = "<br><div>NonStop ESS License <br>Version : 1 <br>SystemSerialNumber : " + data + "\n <br>License : " +mark ;
+            const to_be_saved = "<br><div>NonStop ESS License <br>Version : 1 <br>SystemSerialNumber : " + data + "\n <br>License : " +mark
+            
+                
+            
+            
+        }
+            </script>
+</body>
+</html>

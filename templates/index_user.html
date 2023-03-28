@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index Page</title>
+	<style>
+
+		table, th, td {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<h3>Users</h3>
+	<br>
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>Name</th>
+            <th>Username</th>
+            <th>Password</th>
+		</thead>
+		{% for data in user %}
+		<tbody>
+            
+			<td>{{data.id}}</td>
+            
+            <td>{{data.name}}</td>
+            <td>{{data.username}}</td>
+            <td>{{data.password}}</td>
+			
+			<td><a href="/delete_user/{{data.id}}" type="button">Delete</a><br></td>
+		</tbody>
+		{% endfor%}
+	</table>
+</body>
+</html>

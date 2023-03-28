@@ -1,9 +1,12 @@
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="style1.css">
-
-		<style>
-			body{
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
 				background-color: lightgray;
         font-family: sans-serif;
 			}
@@ -34,12 +37,18 @@
             border : 3px solid black
         }
         #login_button{
-          width: 100px;
-          height : 40px;
+          width: 50px;
+          height : 20px;
+          transition: width 1s, height 1s;
           background-color:antiquewhite;
         }
-        
+        #login_button:hover{
+          width:100px;
+          height:30px;
+        }
         form{
+            margin-top:100px;
+            margin-left : -100px;
           padding-top: 20px;
           padding-bottom: 20px;
           background-color: white;
@@ -47,24 +56,21 @@
           border: 3px solid black ;
           border-radius: 30px;
         }
-		</style>
-
-	</head>
-<body>	
-	<center><h1>Welcome to ESS License Generation Tool</h1></center>
-	<br>
-	<center>
-		<h3>Please Enter your credentials</h3> <br><br>
-		<form action="http://localhost:5000/login" method = "post">
-			<label for="username">Enter your username :</label><br>
-			<input type="text" name="username" id=""><br><br>
-			<label for="password">Enter your password :</label><br>
-			<input type="text" name="password" id=""><br><br>
-			<input type="submit" value="Login" id = "login_button"><br><br>
-			
-			New User? <a href="/registration_form">Register Here</a>
-		</form>
-		<h3>{{info}}</h3>
-	</center>
+    </style>
+</head>
+<body>
+    <center>
+        <div class = 'child' style="margin-left: 100px;width:350px">
+            <form action = "http://localhost:5000/decode_file" method = "post" >
+                Read contents of existing License file<br><br>
+                <label for ="cipher"></label>
+                <input type="file" id="input_cipher_file" name = "Choose File" onclick = "change()">
+                <p><input type = "submit" value = "Submit" /></p>
+                
+                
+            </form>
+            <h3>{{info}}</h3>
+        </div>
+    </center>
 </body>
 </html>
