@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index Page</title>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+		}
+		td{
+			width: 100px;
+			
+		}
+		#first_th{
+			margin-left: 0px;
+			padding-left:-80px;
+			
+		}
+	</style>
+</head>
+<body>
+	<center>
+	<h3>Logs</h3>
+	<br>
+	<table>
+		<thead>
+			<th id = "first_th">Id</th>
+			
+			<th>Username</th>
+            <th>Encoded Text</th>
+            <th>Date and Time</th>
+		</thead>
+		{% for data in log %}
+		<tbody>
+			<td>{{data.id}}</td>
+            
+            <td>{{data.username}}</td>
+            <td>{{data.cipher}}</td>
+            <td>{{data.date}}</td>
+			
+			<td><a href="#" type="button">Delete</a><br></td>
+		</tbody>
+		{% endfor%}
+	</table>
+</center>
+</body>
+</html>

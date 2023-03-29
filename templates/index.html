@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Index Page</title>
+	<style>
+		table,th,td{
+			border : 1px solid black
+		}
+	</style>
 </head>
 <body>
 	<h3>Ciphers</h3>
@@ -10,12 +16,15 @@
 		<thead>
 			<th>Id</th>
 			<th>Encrypted Text</th>
+			<th>Date</th>
 		</thead>
 		{% for data in cipher %}
 		<tbody>
 			<td>{{data.id}}</td>
             
             <td>{{data.cipher}}</td>
+
+			<td>{{data.date}}</td>
 			
 			<td><a href="/delete/{{data.id}}" type="button">Delete</a><br></td>
 		</tbody>
