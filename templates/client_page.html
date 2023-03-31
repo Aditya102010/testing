@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/style_a.css">
     <title>Document</title>
-    <style>
+    <!--<style>
         body{
-				background-color: lightgray;
-        font-family: sans-serif;
+			background-color: lightgray;
+            font-family: sans-serif;
 			}
 			input[type=text], select {
             width: 70%;
@@ -54,7 +55,7 @@
           border: 3px solid black ;
           border-radius: 30px;
         }
-    </style>
+    </style>-->
 </head>
 <body>
     <center><h2>Create new License file</h2>
@@ -77,9 +78,11 @@
                 <button type = "submit" formmethod="POST" download>create file</button>
                 <!--<button formaction = "http://localhost:5000/encode" formmethod = "POST">Create File</button>-->
                 
+                
                  
             </form>	
             <h3>{{info}}</h3>
+            <button formaction = "http://localhost:5000" formmethod="POST">Logout</button>
         </center>
             <script>
                 function myfun2(){

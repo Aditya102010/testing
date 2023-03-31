@@ -42,8 +42,6 @@
                 <br>
                 <button formaction = "http://localhost:5000/encode" formmethod = "POST">Create File</button>
                 <input type="file" dialogtype="save" />
-
-                
                  
             </form>	
         
@@ -63,11 +61,6 @@
             event.preventDefault();
         });
 
-
-
-        if($('#input_cipher_file').val().length){
-            //do your stuff 
-        }
         function change(){
             const data = document.getElementById('input_cipher_file')
             document.getElementById('demo').innerHTML = data;
@@ -86,8 +79,7 @@
             
             
         }
-        
-
+    
         function myFunction() {
             var x = document.getElementById("plaintext");
             if (x.style.display === "none") {

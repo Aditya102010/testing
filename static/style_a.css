@@ -1,0 +1,44 @@
+body{
+    background-color: lightgray;
+font-family: sans-serif;
+}
+input[type=text], select {
+width: 70%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: none;
+border-radius: 4px;
+box-sizing: border-box;
+border-bottom: 2px solid grey;
+
+}
+input[type=password], select {
+width: 70%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+input[type=password]:hover{
+border : 3px solid black
+}
+input[type=text]:hover{
+border : 3px solid black
+}
+#login_button{
+width: 100px;
+height : 40px;
+background-color:antiquewhite;
+}
+
+form{
+padding-top: 20px;
+padding-bottom: 20px;
+background-color: white;
+width:500px;
+border: 3px solid black ;
+border-radius: 30px;
+}
