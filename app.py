@@ -11,6 +11,7 @@ import bcrypt
 #creating an instance of Flask app
 app = Flask(__name__,template_folder='templates')
 
+#needed for creating session
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Ciphers.db'
@@ -228,7 +229,10 @@ def login():
     else:
         return render_template('form.html')
        
-
+@app.route('/logout', methods = ['GET', 'POST'])
+def logout():
+    session['login'] = None
+    return redirect('/')
 
 @app.route('/download', methods = ['GET','POST'])
 def download_file():
@@ -237,7 +241,15 @@ def download_file():
     gets saved onto the client desktop """
 
     if request.method == 'POST':
-    
+       
+        matches = Role.query.filter_by(username = session.get('login'))
+        #checks if a person logs only with client level access, else they are redirected to login page
+        for values in matches:
+            if values.role == "manager":
+                return redirect('/')
+
+        if not session.get('login'):
+            return redirect('/')
         SystemNumber =  request.form['SystemNumber']
         License = 'license' in request.form
     
@@ -272,7 +284,11 @@ def download_file():
 def decode_file():
     """ Takes input in form of a base64 encoded file and then decrypts that file"""
     if request.method == 'POST':
-        
+        matches = Role.query.filter_by(username = session.get('login'))
+        for values in matches:
+            if values.role == "client":
+                return redirect('/')
+
         text_to_be_encoded = request.form['Choose File']
         if text_to_be_encoded == "":
             return render_template('manager_page.html', info = 'Please Select a File')
